@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Picker</title>
+  <style>
+    .image-container {
+      margin-top: 20px;
+    }
+    img {
+      max-width: 300px;
+      max-height: 300px;
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- buka gambar -->
+  <select id="image-dropdown" onchange="displayImage()">
+    <option value="">pilih gambar</option>
+    <option value="images/burung.jpeg">Gambar 1</option>
+    <option value="images/gajah.jpeg">Gambar 2</option>
+    <option value="images/harimau.jpeg">Gambar 3</option>
+    <option value="images/kudanil.jpeg">Gambar 4</option>
+    <option value="images/singa.jpeg">Gambar 5</option>
+    <option value="images/zebra.jpeg">Gambar 6</option>
+    <!-- tutup gambar -->
+  </select>
+
+  <div class="image-container">
+    <img id="displayed-image" src="" alt="Tidak ada gambar yang dipilih">
+  </div>
+
+  <script>
+    // menampilkan gambar saat dipilih
+    function displayImage() {
+      var dropdown = document.getElementById("image-dropdown");
+      var selectedImage = dropdown.options[dropdown.selectedIndex].value;
+      var displayedImage = document.getElementById("displayed-image");
+      var imageName = dropdown.options[dropdown.selectedIndex].text;
+
+      displayedImage.src = selectedImage;
+
+      // Tampilkan kotak alert dengan informasi nama file gambar
+      alert("Nama file gambar: " + namagambar);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konveersi nilai Kurs Rupiah</title>
+  <style>
+    
+  </style>
+</head>
+<style>
+  fieldset{
+    background-color: aqua;
+    width: 800px;
+  }
+  
+</style>
+<body>
+<fieldset>
+<h2>Konversi nilai Kurs Rupiah</h2>
+
+<label for="currency">Pilih Mata Uang:</label>
+<select id="currency">
+  <option value="usd">Dollar US</option>
+  <option value="sgd">Dollar Singapore</option>
+  <option value="myr">Ringgit Malaysia</option>
+  <option value="jpy">Yen Jepang</option>
+  <option value="eur">Euro</option>
+  <option value="sar">Riyal Arab Saudi</option>
+</select>
+
+<label for="amount">Masukkan Jumlah Mata Uang Asing:</label>
+<input type="number" id="amount" placeholder="Masukkan jumlah..." />
+
+<button onclick="convertCurrency()">Konversi</button>
+
+<table id="resultTable">
+  <tr>
+    <th>Mata Uang</th>
+    <th>Kurs Rupiah</th>
+    <th>Hasil Konversi (Rupiah)</th>
+  </tr>
+</table>
+</fieldset>
+<script>
+  function convertCurrency() {
+    var amount = parseFloat(document.getElementById('amount').value);
+    var currency = document.getElementById('currency').value;
+    var exchangeRate;
+
+    switch (currency) {
+      case 'usd':
+        exchangeRate = 9915;
+        break;
+      case 'sgd':
+        exchangeRate = 13472;
+        break;
+      case 'myr':
+        exchangeRate = 874;
+        break;
+      case 'jpy':
+        exchangeRate = 120;
+        break;
+      case 'eur':
+        exchangeRate = 15888;
+        break;
+      case 'sar':
+        exchangeRate = 3592;
+        break;
+      default:
+        exchangeRate = 1;
+    }
+
+    // kurs rupiah 15%
+    var result = (amount * exchangeRate * 1.15).toFixed(2); 
+
+    // Menampilkan hasil konversi dalam tabel
+    var resultTable = document.getElementById('resultTable');
+    var newRow = resultTable.insertRow(-1);
+    var cell1 = newRow.insertCell(0);2
+    var cell2 = newRow.insertCell(1);
+    var cell3 = newRow.insertCell(2);
+
+    cell1.innerHTML = currency.toUpperCase();
+    cell2.innerHTML = exchangeRate.toLocaleString('id-ID');
+    cell3.innerHTML = result.toLocaleString('id-ID');
+  }
+</script>
+</body>
+</html>

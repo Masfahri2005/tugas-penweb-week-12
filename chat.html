@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbox</title>
+</head>
+<body>
+    <textarea name="tampil" class="tampil" cols="30" rows="10" disable></textarea>
+    <br>
+    <input type="text" class="input">
+    <button class="kirim" onclick="chat()">kirim</button>
+</body>
+<script>
+    var tampil = document.querySelector(".tampil");
+    var input = document.querySelector(".input");
+
+    function chat () {
+        tampil.innerHTML = tampil.innerHTML + "pesan : " + input.value + "\n"; input.value="";
+    }
+</script>
+</html>
